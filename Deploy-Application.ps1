@@ -159,7 +159,7 @@ Try {
 
         #Fix Adobe's garbage installer if it kills explorer
         $ProcessActive = Get-Process explorer -ErrorAction SilentlyContinue
-        if($ProcessActive -eq $null){
+        if(!$ProcessActive){
             Execute-ProcessAsUser -Path "$envSystemRoot\explorer.exe"
             Write-Log "Restarting Explorer"
         }
